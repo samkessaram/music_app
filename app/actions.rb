@@ -26,7 +26,18 @@ post '/songs' do
   end
 end
 
+get '/artists/:artist' do
+  @songs = Song.where(artist:params[:artist])
+  @song = @songs.first
+  erb :'artists/all'
+end
+
 get '/songs/:id' do
   @song = Song.find params[:id]
   erb :'songs/show'
 end
+
+
+
+
+
