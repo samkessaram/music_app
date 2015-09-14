@@ -1,0 +1,15 @@
+<h1><%= @song.title %></h1>
+
+<p>
+  Artist: <%=@song.artist%>
+</p>
+
+<p>
+  Video: <a href="<%=@song.url%>"><%= @song.url%>></a>
+</p>
+
+<p>
+  Date Uploaded: <%= @song.created_at%>
+</p>
+<hr/>
+<a href="/songs">Back to Sound Wall</a>
