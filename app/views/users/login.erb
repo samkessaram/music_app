@@ -1,0 +1,20 @@
+<% if session[:error] %>
+  <div>
+    <p><strong>Please log in to post a song.</strong></p>
+  </div>
+  <% session[:error]=false %>
+<% end %>
+
+<form method="post" action="/login">
+  <div class="form-group">
+      <label>username</label>
+      <input type="text" class="form-control" name="email" placeholder="example@example.com" value="<% @user.email%>">
+  </div>
+  <div>
+    <label>password</label>
+    <input type="password" class="form-control" name="password" value ="<%@user.password%>">
+  </div>
+  <div>
+    <input class="btn btn-default submit-btn" type="submit" value="Submit">
+  </div>
+</form>

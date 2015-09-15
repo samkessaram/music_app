@@ -9,6 +9,10 @@ get '/songs' do
 end
 
 get '/songs/new' do
+  if session[:user_id] == nil
+    session[:error] = true
+    redirect '/login'
+  end
   @song = Song.new
   erb :'songs/new'
 end
@@ -38,6 +42,42 @@ get '/songs/:id' do
 end
 
 
+get '/users/new' do
+  @user = User.new
+  erb :'users/new'
+end
+
+post '/users' do
+  @user = User.new(
+    email: params[:email],
+    password: params[:password],
+    password_confirmation: params[:password_confirmation]
+    )
+  if @user.save
+    redirect '/songs'
+  else
+    erb :'users/new'
+  end
+end
+
+get '/login' do
+  @user = User.new
+  erb :'users/login'
+end
+
+post '/login' do
+  if @user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
+    session[:user_id] = @user.id
+    redirect '/songs'
+  else
+    redirect '/login'
+  end
+end
+
+get '/logout' do
+  session[:user_id] = nil
+  redirect '/'
+end
 
 
 

@@ -11,18 +11,18 @@
 
 <form method="post" action="/songs">
   <div class="form-group">
-    <label>Title:</label>
-    <input type="text" class="form-control" name="title" placeholder="Song Title" value="<%= @song.title%>">
+    <label>title</label>
+    <input type="text" class="form-control" name="title" value="<%= @song.title%>">
   </div>
   <div class="form-group">
-    <label>Artist:</label>
-    <input type="text" class="form-control" name="artist" placeholder="Artist" value="<%= @song.artist%>">
+    <label>artist</label>
+    <input type="text" class="form-control" name="artist" value="<%= @song.artist%>">
   </div>
   <div class="form-group">
-    <label>url:</label>
-    <input type="text" class="form-control" name="url" placeholder="eg. Youtube" value="<%=@song.url%>">
+    <label>url</label>
+    <input type="text" class="form-control" name="url" placeholder="eg. https://www.youtube.com/watch?v=dQw4w9WgXcQ" value="<%=@song.url%>">
   </div>
-  <div class="btn btn-default">
-    <input type="submit" value="Submit">
+  <div>
+    <input class="btn btn-default submit-btn" type="submit" value="Submit">
   </div>
 </form>

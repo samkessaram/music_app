@@ -5,8 +5,6 @@
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
-  -->
-  <link rel="stylesheet" href="/stylesheets/normalize.css">
   <!--
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -15,13 +13,27 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" href="/stylesheets/application.css">
+  <link rel="stylesheet" href="/stylesheets/mycss.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/javascript/application.js"></script>
 
   <title></title>
 </head>
-<body class="intro-body">
+<body>
+<% if session[:user_id] == nil %>
+<button type="button" class="btn btn-default">
+    <a href="/login">Log in</a></button>
+<% else %>
+  <button type="button" class="btn btn-default">
+    <a href="/logout">Log out</a></button>
+<% end %>
+<form role="search">
+    <a href="/songs/new" class="btn btn-default">Add song</a>
+</form>
   <%= yield %>
 </body>
 </html>
+
+
+  
