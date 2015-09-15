@@ -22,6 +22,7 @@ post '/songs' do
     title: params[:title],
     artist: params[:artist],
     url: params[:url]
+    # uploaded_by: 
     )
   if @song.save
     redirect '/songs'
@@ -68,6 +69,7 @@ end
 post '/login' do
   if @user = User.find_by_email(params[:email]).try(:authenticate, params[:password])
     session[:user_id] = @user.id
+    binding.pry
     redirect '/songs'
   else
     redirect '/login'

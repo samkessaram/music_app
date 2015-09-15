@@ -1,13 +1,13 @@
-
-
-
 <div class="song">
-<% @songs.each do |song| %>
-  <div class="song .col-md-4">
-    <h2><a href="/songs/<%= song.id %>"><%= song.title %></a></h2> 
-    <p><%= song.artist %></p>
-  </div>
-<% end %>
+  <% @songs.each do |song| %>
+    <div>
+      <div class="upvote"></div>
+      <div class="song .col-md-4">
+        <h2><a href="/songs/<%= song.id %>"><%= song.title %></a></h2> 
+        <p><%= song.artist %></p>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 
